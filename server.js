@@ -17,6 +17,10 @@ app.get('/article_2',function(req,res){
     res.send('Article 2 will be put up soon!');
 })
 
+app.get('/article_3',function(req,res){
+    res.send('Article 3 will be put up soon!');
+})
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
