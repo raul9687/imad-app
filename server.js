@@ -3,6 +3,66 @@ var morgan = require('morgan');
 var path = require('path');
 
 var app = express();
+
+var articleOne={
+    title: 'Article 1',
+    content: `<p>
+              This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.
+          </p>
+          <p>
+              This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.
+          </p>
+          <p>
+              This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.This is article one.
+          </p>`,
+    heading: "This is my 1st web article."
+};
+
+var articleTwo={
+    title: 'Article 2',
+    heading: 'This is my 2nd web article.',
+    content: `
+     <div class="justify">
+          <p>
+              <img src="http://cloudpeermedia.com/wp-content/uploads/2014/08/article_writing_1.png" class="img-medium"/>
+          </p>
+     </div>
+    `
+};
+
+function createTemplate (data){
+    var title=data.title;
+    var heading=data.heading;
+    var content=data.content;
+var htmlTemplate=`
+<html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <link href="/ui/style.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+        <hr/>
+        <div>
+        <h3>${heading}</h3>
+        </div>
+        <div class="justify">
+            ${content}
+        </div>
+        </div>
+    </body>
+</html>
+`;
+
+return(htmlTemplate);
+}
+
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
@@ -10,16 +70,16 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article_1',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article_1.html'));
-})
+    res.send(createTemplate(articleOne));
+});
 
 app.get('/article_2',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article_2.html'));
-})
+    res.send(createTemplate(articleTwo));
+});
 
 app.get('/article_3',function(req,res){
     res.send('Article 3 will be put up soon!');
-})
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
