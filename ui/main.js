@@ -21,10 +21,6 @@ button.onclick = function(){
 var submit=document.getElementById('submit_btn');
 submit.onclick = function(){
     
-    var nameInput=document.getElementById('name');
-    var name=nameInput.value;
-    var commentInput=document.getElementById('comment');
-    var comment=commentInput.value;
     var request = new XMLHttpRequest();
     
     request.onreadystatechange = function(){
@@ -44,6 +40,10 @@ submit.onclick = function(){
         }
     };
     
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
+    var commentInput=document.getElementById('comment');
+    var comment=commentInput.value;
     request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name + '&comment=' + comment,true);
     request.send(null);
 };
