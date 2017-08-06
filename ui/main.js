@@ -1,15 +1,19 @@
-console.log('Loaded!');
-//Changing the content
-var div=document.getElementById('main');
-div.innerHTML='Updated Content';
-//Moving the image
-var img=document.getElementById('image');
-var temp=0;
-function moveRight()
-{
-    temp=temp+5;
-    img.style.marginLeft= temp + 'px';
-}
-img.onclick = function(){
-    var interval=setInterval(moveRight,100);
+var button=document.getElementById('counter');
+button.onclick = function(){
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function(){
+        if(request.readyState === XMLHttpRequest.DONE){
+            if(request.status === 200){
+                var counter=request.responseText;
+                var span=document.getElementById('likes');
+                span.innerHTML=counter.toString();
+            }
+        }
+    };
+    
+    request.open('GET','http://raul9687.imad.hasura-app.io/counter',true);
+    request.send(null);
+    
 };
