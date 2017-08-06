@@ -62,6 +62,7 @@ var htmlTemplate=`
 
 return(htmlTemplate);
 }
+var counter=0;
 
 app.use(morgan('combined'));
 
@@ -79,6 +80,11 @@ app.get('/article_2',function(req,res){
 
 app.get('/article_3',function(req,res){
     res.send('Article 3 will be put up soon!');
+});
+
+app.get('/counter',function(req,res){
+   counter=counter+1;
+   res.send(counter.toString());
 });
 
 app.get('/ui/style.css', function (req, res) {
