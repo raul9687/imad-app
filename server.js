@@ -87,6 +87,19 @@ app.get('/counter',function(req,res){
    res.send(counter.toString());
 });
 
+var comments=[];
+var names=[];
+app.get('/submit-comment', function(req, res){
+    var name=req.query.name;
+    var comment=req.query.comment;
+    
+    names.push(name);
+    comments.push(comment);
+    
+    res.send(JSON.stringfy(names));
+    res.send(JSON.stringfy(comments));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
