@@ -45,5 +45,5 @@ submit.onclick = function(){
     var commentInput=document.getElementById('comment');
     var comment=commentInput.value;
     request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name + '&comment=' + comment,true);
-    request.send(null);
+    request.send('Error!');
 };
