@@ -27,9 +27,9 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
                 var names=request.responseText;
-                //var comments=request.responseText;
+                var comments=request.responseText;
                 names=JSON.parse(names);
-              //  comments=JSON.parse(comments);
+                comments=JSON.parse(comments);
                 var list='';
                 for(var i=0; i< names.length; i++){
                     list += '<li>' + names[i] + '</li>';
@@ -42,8 +42,8 @@ submit.onclick = function(){
     
     var nameInput=document.getElementById('name');
     var name=nameInput.value;
-    //var commentInput=document.getElementById('comment');
-    //var comment=commentInput.value;
-    request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name,true);
+    var commentInput=document.getElementById('comment');
+    var comment=commentInput.value;
+    request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name + '&comment=' + comment,true);
     request.send(null);
 };
