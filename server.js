@@ -97,7 +97,7 @@ app.get('/submit-comment', function(req, res){
     comments.push(comment);
     
     res.send(JSON.stringfy(names));
-    res.send(JSON.stringfy(comments));
+   // res.send(JSON.stringfy(comments));
 });
 
 app.get('/ui/style.css', function (req, res) {
