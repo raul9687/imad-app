@@ -27,8 +27,6 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
                 var names=request.responseText;
-                setTimeout(function() {
-                }, 3000);
                 var comments=request.responseText;
                 names=JSON.parse(names);
                 comments=JSON.parse(comments);
