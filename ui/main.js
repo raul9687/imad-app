@@ -27,12 +27,10 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
                 var names=request.responseText;
-                var comments=request.responseText;
                 names=JSON.parse(names);
-                comments=JSON.parse(comments);
-                var list='';
+                list='';
                 for(var i=0; i< names.length; i++){
-                    list += '<li>' + names[i] + '<br>' + comments[i] + '</li>';
+                    list += '<li>' + names[i] + '<br>' + names[i+1] + '</li>';
                 }
                 var ul=document.getElementById('list');
                 ul.innerHTML=list;
