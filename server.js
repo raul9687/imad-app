@@ -87,22 +87,19 @@ app.get('/counter',function(req,res){
    res.send(counter.toString());
 });
 
-var comments=[];
-var names=[];
+var names_comments=[];
 app.get('/submit-comment', function(req, res){
     var name=req.query.name;
     var comment=req.query.comment;
     
-    names.push(name);
-    comments.push(comment);
+    names_comments.push(name);
+    names_comments.push(comment);
     
-    res.send(JSON.stringify(comments));
-    res.send(JSON.stringify(names));
+    res.send(JSON.stringify(names_comments));
 });
 
 app.get('/load', function(req,res){
-    res.send(JSON.stringify(names));
-    res.send(JSON.stringify(comments));
+    res.send(JSON.stringify(names_comments));
 });
 
 app.get('/ui/style.css', function (req, res) {
