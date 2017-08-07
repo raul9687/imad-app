@@ -7,7 +7,7 @@ var request = new XMLHttpRequest();
                 names=JSON.parse(names);
                 if(names.length>2){
                 list='';
-                for(var i=0; i< names.length; i=i+2){
+                for(var i=2; i< names.length; i=i+2){
                     list += '<li>' + names[i] + '<br>' + names[i+1] + '</li>';
                 }
                 var ul=document.getElementById('list');
@@ -51,7 +51,7 @@ submit.onclick = function(){
                 var names=request.responseText;
                 names=JSON.parse(names);
                 list='';
-                for(var i=0; i< names.length; i=i+2){
+                for(var i=2; i< names.length; i=i+2){
                     list += '<li>' + names[i] + '<br>' + names[i+1] + '</li>';
                 }
                 var ul=document.getElementById('list');
