@@ -90,7 +90,7 @@ app.get('/counter',function(req,res){
 var comments=[];
 var names=[];
 app.get('/submit-comment', function(req, res){
-    var name=req.query.name;
+    //var name=req.query.name;
     var comment=req.query.comment;
     
     names.push(name);
@@ -100,10 +100,10 @@ app.get('/submit-comment', function(req, res){
     res.send(JSON.stringfy(comments));
 });
 
-//app.get('/load', function(req,res){
-  //  res.send(JSON.stringify(names));
-    //res.send(JSON.stringify(comments));
-//});
+app.get('/load', function(req,res){
+    res.send(JSON.stringify(names));
+    res.send(JSON.stringify(comments));
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
