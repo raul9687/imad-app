@@ -96,8 +96,8 @@ app.get('/submit-comment', function(req, res){
     names.push(name);
     comments.push(comment);
     
-    res.send(JSON.stringify(names));
     res.send(JSON.stringfy(comments));
+    res.send(JSON.stringify(names));
 });
 
 app.get('/load', function(req,res){
