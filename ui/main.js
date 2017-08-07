@@ -45,6 +45,6 @@ submit.onclick = function(){
     };
     
    
-    request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name + '&comment=' + comment,true);
+    request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name,true);
     request.send(null);
 };
