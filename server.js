@@ -91,13 +91,13 @@ var comments=[];
 var names=[];
 app.get('/submit-comment', function(req, res){
     var name=req.query.name;
-    //var comment=req.query.comment;
+    var comment=req.query.comment;
     
     names.push(name);
-    //comments.push(comment);
+    comments.push(comment);
     
     res.send(JSON.stringify(names));
-   // res.send(JSON.stringfy(comments));
+    res.send(JSON.stringfy(comments));
 });
 
 app.get('/ui/style.css', function (req, res) {
