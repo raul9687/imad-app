@@ -91,10 +91,10 @@ var comments=[];
 var names=[];
 app.get('/submit-comment', function(req, res){
     var name=req.query.name;
-    var comment=req.query.comment;
+    //var comment=req.query.comment;
     
     names.push(name);
-    comments.push(comment);
+    //comments.push(comment);
     
     res.send(JSON.stringfy(names));
    // res.send(JSON.stringfy(comments));
