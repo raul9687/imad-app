@@ -100,10 +100,10 @@ app.get('/submit-comment', function(req, res){
     res.send(JSON.stringfy(comments));
 });
 
-app.get('/load', function(req,res){
-    res.send(JSON.stringify(names));
-    res.send(JSON.stringify(comments));
-});
+//app.get('/load', function(req,res){
+  //  res.send(JSON.stringify(names));
+    //res.send(JSON.stringify(comments));
+//});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
