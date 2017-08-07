@@ -18,10 +18,6 @@ button.onclick = function(){
     
 };
 
-var nameInput=document.getElementById('name');
-var name=nameInput.value;
-var commentInput=document.getElementById('comment');
-var comment=commentInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick = function(){
     
@@ -35,7 +31,7 @@ submit.onclick = function(){
                 names=JSON.parse(names);
               //  comments=JSON.parse(comments);
                 var list='';
-                for(var i=0; i< names.length(); i++){
+                for(var i=0; i< names.length; i++){
                     list += '<li>' + name[i] + '</li>';
                 }
                 var ul=document.getElementById('list');
@@ -44,7 +40,10 @@ submit.onclick = function(){
         }
     };
     
-   
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
+    //var commentInput=document.getElementById('comment');
+    //var comment=commentInput.value;
     request.open('GET','http://raul9687.imad.hasura-app.io/submit-comment?name=' + name,true);
     request.send(null);
 };
