@@ -90,10 +90,10 @@ app.get('/counter',function(req,res){
 var comments=[];
 var names=[];
 app.get('/submit-comment', function(req, res){
-    //var name=req.query.name;
+    var name=req.query.name;
     var comment=req.query.comment;
     
-    //names.push(name);
+    names.push(name);
     comments.push(comment);
     
     res.send(JSON.stringify(comments));
