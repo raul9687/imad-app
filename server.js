@@ -95,13 +95,20 @@ app.get('/counter',function(req,res){
    res.send(counter.toString());
 });
 
-var names_comments=[];
 app.get('/submit-comment', function(req, res){
     var name=req.query.name;
     var comment=req.query.comment;
     
-    names_comments.push(name);
-    names_comments.push(comment);
+    pool.query('INSERT INTO "comment" ("id", "name", "data") VALUES (',name,",",comment,")", function(err, result){
+        if(err)
+        {
+            res.status('500').send(err.toString());
+        }
+        else
+        {
+            res.send(JSON.stringify(result));
+        }
+    });
     
     res.send(JSON.stringify(names_comments));
 });
