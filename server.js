@@ -96,10 +96,10 @@ app.get('/counter',function(req,res){
 });
 
 app.get('/submit-comment', function(req, res){
-    var name=req.query.name;
-    var comment=req.query.comment;
+    var name = req.query.name;
+    var comment = req.query.comment;
     
-    pool.query('INSERT INTO "comment" ("id", "name", "data")  VALUES (' + "'" + name + "'" + ',' + "'" + comment + "'" + ')', function(err, result){
+    pool.query('INSERT INTO comment ("id", "name", "data")  VALUES (' + "'" + name + "','" + comment + "'" + ')', function(err, result){
         if(err)
         {
             res.status('500').send(err.toString());
