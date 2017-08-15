@@ -99,17 +99,17 @@ app.get('/submit-comment', function(req, res){
     var name = req.query.name;
     var comment = req.query.comment;
     
-    pool.query(`'INSERT INTO comment ("id", "name", "data")  
-                VALUES (' + "'" + name + "','" + comment + "'" + ')', function(err, result){
-        if(err)
-        {
-            res.status('500').send(err.toString());
-        }
-        else
-        {
-            res.send(JSON.stringify(result));
-        }
-    }`);
+    res.send(name);    
+   // pool.query('INSERT INTO comment ("id", "name", "data") VALUES (' + "'" + name + "','" + comment + "'" + ')', function(err, result){
+     //   if(err)
+     //   {
+       //     res.status('500').send(err.toString());
+        //}
+        //else
+        //{
+          //  res.send(JSON.stringify(result));
+        //}
+//    });
     
 });
 
