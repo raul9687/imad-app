@@ -110,7 +110,6 @@ app.get('/submit-comment', function(req, res){
         }
     });
     
-    res.send(JSON.stringify(names_comments));
 });
 
 app.get('/load', function(req,res){
